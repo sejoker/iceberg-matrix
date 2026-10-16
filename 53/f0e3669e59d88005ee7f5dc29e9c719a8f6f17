@@ -1,0 +1,23 @@
+src/data/catalogs.test.ts
+  s_c288f2cb7a52ad::t_ffd6b0ef643a77 27
+src/data/catalogs/cloudflare-basin-catalog/cloudflare-basin-catalog.json
+  s_c288f2cb7a52ad::t_e877fcab39b896 1-97
+src/data/load-catalogs.ts
+  s_c288f2cb7a52ad::t_bec879cdb968a2 15,38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "53f0e3669e59d88005ee7f5dc29e9c719a8f6f17",
+  "prompts": {},
+  "sessions": {
+    "s_c288f2cb7a52ad": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_c288f2cb7a52ad",
+        "model": "unknown"
+      },
+      "human_author": "Yevgen Safronov <yevgen@cloudflare.com>"
+    }
+  }
+}
