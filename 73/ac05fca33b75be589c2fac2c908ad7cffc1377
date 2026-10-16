@@ -1,0 +1,21 @@
+public/logos/cloudflare.svg
+  s_c3057667af9e18::t_55b4ca2b05b60b 1
+src/components/CompatibilityMatrix.tsx
+  s_c3057667af9e18::t_7dbd504fc0ebc3 104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "73ac05fca33b75be589c2fac2c908ad7cffc1377",
+  "prompts": {},
+  "sessions": {
+    "s_c3057667af9e18": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_c3057667af9e18",
+        "model": "unknown"
+      },
+      "human_author": "Yevgen Safronov <yevgen@cloudflare.com>"
+    }
+  }
+}
