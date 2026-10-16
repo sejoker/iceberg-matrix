@@ -12,6 +12,7 @@ import snowflakeHorizon from "./catalogs/snowflake-horizon/snowflake-horizon.jso
 import awsGlueDataCatalog from "./catalogs/aws-glue-data-catalog/aws-glue-data-catalog.json";
 import googleLakehouseRuntimeCatalog from "./catalogs/google-lakehouse-runtime-catalog/google-lakehouse-runtime-catalog.json";
 import databricksUnity from "./catalogs/databricks-unity/databricks-unity.json";
+import cloudflareBasinCatalog from "./catalogs/cloudflare-basin-catalog/cloudflare-basin-catalog.json";
 import microsoftOnelake from "./catalogs/microsoft-onelake/microsoft-onelake.json";
 
 // --- Open-source catalogs ---
@@ -34,6 +35,7 @@ const catalogFiles: CatalogFile[] = [
   awsGlueDataCatalog,
   googleLakehouseRuntimeCatalog,
   databricksUnity,
+  cloudflareBasinCatalog,
   microsoftOnelake,
   apachePolaris,
   apacheGravitino,

@@ -24,6 +24,7 @@ const EXPECTED_CATALOG_IDS = [
   "aws-glue-data-catalog",
   "databricks-unity",
   "google-lakehouse-runtime-catalog",
+  "cloudflare-basin-catalog",
   "microsoft-onelake",
   "apache-polaris",
   "apache-gravitino",

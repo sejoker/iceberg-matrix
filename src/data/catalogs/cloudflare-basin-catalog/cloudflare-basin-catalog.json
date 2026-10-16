@@ -1,0 +1,97 @@
+{
+  "platforms": [
+    {
+      "id": "cloudflare-basin-catalog",
+      "name": "Cloudflare Basin Catalog",
+      "vendor": "Cloudflare",
+      "category": "cloud",
+      "group": "Proprietary",
+      "docUrl": "https://developers.cloudflare.com/basin-catalog/"
+    }
+  ],
+  "support": {
+    "cloudflare-basin-catalog:rest-spec-support:current": {
+      "level": "partial",
+      "notes": "Exposes a standard Iceberg REST catalog interface on each R2 bucket (formerly R2 Data Catalog), with a catalog URI and warehouse name used by any REST-compatible Iceberg client. Bearer-token auth and the X-Iceberg-Access-Delegation: vended-credentials header are supported.",
+      "caveats": [
+        "View endpoints of the Iceberg REST spec are not supported",
+        "Multi-table transactions are not supported",
+        "R2 buckets in a non-default jurisdiction are not supported"
+      ],
+      "links": [
+        { "label": "Basin Catalog overview", "url": "https://developers.cloudflare.com/basin-catalog/" },
+        { "label": "Manage catalogs", "url": "https://developers.cloudflare.com/basin-catalog/manage-catalogs/" }
+      ]
+    },
+    "cloudflare-basin-catalog:v2-spec-support:current": {
+      "level": "full",
+      "notes": "Serves format v2 tables, including row-level deletes in both copy-on-write and merge-on-read modes (position/equality delete files), which managed compaction applies when rewriting data files.",
+      "caveats": [
+        "Managed compaction only rewrites Parquet data files"
+      ],
+      "links": [
+        { "label": "Deleting data", "url": "https://developers.cloudflare.com/basin-catalog/deleting-data/" },
+        { "label": "Table maintenance", "url": "https://developers.cloudflare.com/basin-catalog/table-maintenance/" }
+      ]
+    },
+    "cloudflare-basin-catalog:v3-spec-support:current": {
+      "level": "none",
+      "notes": "Format v3 tables (deletion vectors, row lineage, variant and geospatial types) are not supported; tables are format v2.",
+      "caveats": [],
+      "links": [{ "label": "Basin Catalog docs", "url": "https://developers.cloudflare.com/basin-catalog/" }]
+    },
+    "cloudflare-basin-catalog:managed-offering:current": {
+      "level": "full",
+      "notes": "Generally available, fully managed catalog built into R2 buckets: enabled per bucket from the dashboard, Wrangler or Terraform, with managed compaction, manifest optimization and snapshot expiration. No egress fees for engines reading from other clouds.",
+      "caveats": [],
+      "links": [
+        { "label": "Basin GA announcement", "url": "https://developers.cloudflare.com/changelog/post/2026-10-01-basin-ga/" },
+        { "label": "Pricing", "url": "https://developers.cloudflare.com/basin-catalog/platform/pricing/" }
+      ]
+    },
+    "cloudflare-basin-catalog:serves-own-irc:current": {
+      "level": "full",
+      "notes": "Serves its own tables read and write over the Iceberg REST API to external engines, vending short-lived SigV4 credentials for the underlying R2 data files. Read-only and read-write API tokens are supported.",
+      "caveats": [
+        "Vended credentials inherit the R2 storage permissions of the authenticating API token rather than being scoped to a single table path"
+      ],
+      "links": [
+        { "label": "Authenticate your Iceberg engine", "url": "https://developers.cloudflare.com/basin-catalog/manage-catalogs/#authenticate-your-iceberg-engine" },
+        { "label": "Read-only tokens", "url": "https://developers.cloudflare.com/changelog/post/2026-07-09-r2-data-catalog-read-only-tokens/" }
+      ]
+    },
+    "cloudflare-basin-catalog:rw-foreign-irc:current": {
+      "level": "none",
+      "notes": "No documented support for reading or writing tables governed by an external catalog. The bundled engine, Basin SQL, queries tables in Basin Catalog only.",
+      "caveats": [],
+      "links": [{ "label": "Basin GA announcement", "url": "https://developers.cloudflare.com/changelog/post/2026-10-01-basin-ga/" }]
+    },
+    "cloudflare-basin-catalog:federation-broker:current": {
+      "level": "none",
+      "notes": "Not a meta-catalog: each catalog serves the Iceberg tables in its own R2 bucket and does not federate external catalogs.",
+      "caveats": [],
+      "links": [{ "label": "Basin Catalog overview", "url": "https://developers.cloudflare.com/basin-catalog/" }]
+    },
+    "cloudflare-basin-catalog:multi-engine-multi-cloud:current": {
+      "level": "partial",
+      "notes": "Broad engine compatibility with documented setups for Spark, Trino, DuckDB, PyIceberg, Snowflake and StarRocks, and zero-egress access from compute in any cloud. Table storage is R2 only.",
+      "caveats": [
+        "Tables must live in R2; storage in other clouds is not supported"
+      ],
+      "links": [
+        { "label": "Engine configuration examples", "url": "https://developers.cloudflare.com/basin-catalog/config-examples/" }
+      ]
+    },
+    "cloudflare-basin-catalog:governance-cred-vending:current": {
+      "level": "partial",
+      "notes": "Catalog-vended, short-lived SigV4 credentials and read-only or read-write API tokens scoped per bucket. No namespace- or table-level RBAC, column masking or row/column policies are documented.",
+      "caveats": [
+        "Vended credentials carry the token's bucket-level R2 permissions rather than per-table path scoping"
+      ],
+      "links": [
+        { "label": "Authenticate your Iceberg engine", "url": "https://developers.cloudflare.com/basin-catalog/manage-catalogs/#authenticate-your-iceberg-engine" },
+        { "label": "R2 API token permissions", "url": "https://developers.cloudflare.com/r2/api/tokens/#permissions" }
+      ]
+    }
+  }
+}
