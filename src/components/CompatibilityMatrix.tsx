@@ -101,6 +101,7 @@ const PLATFORM_LOGOS: Record<string, string> = {
   "databricks-unity": "/logos/databricks.svg",
   "google-lakehouse-runtime-catalog": "/logos/bigquery.svg",
   "microsoft-onelake": "/logos/fabric.png",
+  "cloudflare-basin-catalog": "/logos/cloudflare.svg",
 };
 
 interface PopoverState {
